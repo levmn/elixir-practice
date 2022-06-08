@@ -4,6 +4,7 @@ defmodule ExMon do
 
   @computer_name "Alfredo"
   @computer_moves [:move_avg, :move_rnd, :move_heal]
+
   def create_player(name, move_avg, move_rnd, move_heal) do
     Player.build(name, move_avg, move_rnd, move_heal)
   end

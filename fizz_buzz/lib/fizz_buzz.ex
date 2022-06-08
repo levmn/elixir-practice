@@ -1,4 +1,5 @@
 defmodule FizzBuzz do
+
   def build(file_name) do
     file_name
     |> File.read()
@@ -8,13 +9,14 @@ defmodule FizzBuzz do
   defp handle_file_read({:ok, result}) do
     result =
       result
-      |> String.split(",")
+      |> String.split(",") # String.split(result, ",")
       |> Enum.map(&convert_and_evaluate_numbers/1)
 
     {:ok, result}
   end
 
   defp handle_file_read({:error, reason}), do: {:error, "Error reading the file: #{reason}"}
+  # defp handle_file_read(_), do: nil
 
   defp convert_and_evaluate_numbers(elem) do
     elem
@@ -27,4 +29,3 @@ defmodule FizzBuzz do
   defp evaluate_numbers(number) when rem(number, 5) == 0, do: :buzz
   defp evaluate_numbers(number), do: number
 end
-
